@@ -6,9 +6,11 @@ class authService {
 
   authorize = (username, password) => {
     this.token = "res";
-    // return apiService.get(authorizationApi.get, { username, password }).then((res) => {
-    //   this.token = res.data;
-    // });
+    return apiService
+      .get(authorizationApi.get, { username, password })
+      .then((res) => {
+        this.token = res.data;
+      });
   };
   getToken = () => this.token;
 }

@@ -11,7 +11,7 @@ import AuthService from "./_services/authorize.service";
 render(
   <Provider store={store}>
     <Router history={history}>
-      {AuthService.getToken() === null ? <LoginContainer /> : <App />}
+      {AuthService.getToken() !== null ? <LoginContainer /> : <App />}
     </Router>
   </Provider>,
   document.getElementById("root")
