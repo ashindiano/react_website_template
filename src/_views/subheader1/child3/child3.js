@@ -16,6 +16,7 @@ export class Child3 extends CComponent {
     // this.props.updateHeader("Sample Table");
     setTimeout(() => this.props.updateHeader("Sample Table with data"), 3000);
 
+    //Api Call Example
     getCities().then((res) => {
       this.updateState({ cities: res }, () => console.log("State", this.state));
     });
