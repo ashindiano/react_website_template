@@ -8,9 +8,12 @@ import Navigator from "./navigator";
 import Header from "./header";
 import theme from "./theme";
 import HomePageContainer from "../_views/home/container";
+import EnhancedTableHead from "../_views/test/sample_table";
+import LoginContainer from "../_views/login/container";
 import Child1Container from "../_views/subheader1/child1/container";
 import Child2Container from "../_views/subheader1/child2/container";
 import Child3Container from "../_views/subheader1/child3/container";
+import PrivateRoute from "../_helpers/private_route";
 
 function Copyright() {
   return (
@@ -78,18 +81,22 @@ class Base extends Component {
             <Header logout={this.props.logout} account={account} />
             <main className={classes.main}>
               <Switch>
-                <Route path={"/home"} component={HomePageContainer} />
-                <Route
+                <PrivateRoute path={"/home"} component={HomePageContainer} />
+                <PrivateRoute
                   path={"/subheader1/child1"}
                   component={Child1Container}
                 />
-                <Route
+                <PrivateRoute
                   path={"/subheader1/child2"}
                   component={Child2Container}
                 />
-                <Route
+                <PrivateRoute
                   path={"/subheader1/child3"}
                   component={Child3Container}
+                />
+                <PrivateRoute
+                  path={"/subheader2/child1"}
+                  component={EnhancedTableHead}
                 />
                 <Redirect from="/" to={"/home"} />
               </Switch>

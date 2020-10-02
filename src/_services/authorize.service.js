@@ -1,19 +1,20 @@
-const { authorizationApi } = require("../_configs");
-const { apiService } = require("./api.service");
+import { authorizationApi } from "../_configs";
+import { login, logout, useAuth } from "../_helpers/auth_provider";
+import { apiService } from "./api.service";
 
 class authService {
-  token = null;
-
   authorize = (username, password) => {
-    this.token = "res";
     return apiService
       .get(authorizationApi.get, { username, password })
       .then((res) => {
-        this.token = res.data;
+        login(res.data); //token is fed to the Auth Provider
       });
   };
-  getToken = () => this.token;
+
+  logout = logout();
+
+  isLoggedIn = useAuth;
 }
 
-const AuthService = new authService(); // singleton
-export default AuthService;
+const service = new authService(); // singleton
+export { service as AuthService };

@@ -4,11 +4,13 @@ import { compose } from "recompose";
 
 import { Child1 } from "./child1";
 import { templateActions } from "../../../_actions";
-
+import theme from "../../../_template/theme";
 const styles = {
   paper: {
-    minHeight: 600,
+    minHeight: 300,
     padding: 10,
+    border: "solid",
+    borderColor: theme.palette.primary.main,
   },
 };
 

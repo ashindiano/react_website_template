@@ -29,7 +29,7 @@ export class Child1 extends CComponent {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.paper}>
+      <Paper className={classes.paper} elevation={0}>
         <CAutocompleteSingleSelect
           style={{ width: 230 }}
           label="Employees"

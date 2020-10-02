@@ -3,11 +3,22 @@ import { Paper, Typography } from "@material-ui/core";
 import MaterialTable from "material-table";
 import { tableData } from "./table.dummy_data";
 import { columnDef } from "./column_def";
+import { CComponent } from "../../../_components/custom";
 import { tableIcons } from "../../../_constants/material_table.icons";
+import { getCities } from "./actions";
 
-export class Child3 extends Component {
+export class Child3 extends CComponent {
+  state = {
+    cities: {},
+  };
+
   componentDidMount() {
-    this.props.updateHeader("Child 3");
+    // this.props.updateHeader("Sample Table");
+    setTimeout(() => this.props.updateHeader("Sample Table with data"), 3000);
+
+    getCities().then((res) => {
+      this.updateState({ cities: res }, () => console.log("State", this.state));
+    });
   }
 
   tableActions = [
@@ -24,8 +35,12 @@ export class Child3 extends Component {
   ];
 
   tableOptions = { search: false };
+
   render() {
     const { classes } = this.props;
+    let _columnDef = columnDef;
+    _columnDef[3].lookup = this.state.cities;
+
     return (
       <Paper className={classes.paper}>
         <div style={{ display: "inline-flex" }}>
@@ -49,10 +64,9 @@ export class Child3 extends Component {
           </Typography>
         </div>
         <MaterialTable
-          icons={tableIcons}
           title="Sample Title "
           data={tableData}
-          columns={columnDef}
+          columns={_columnDef}
           actions={this.tableActions}
           options={this.tableOptions}
         />
