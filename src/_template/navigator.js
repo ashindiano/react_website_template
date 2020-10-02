@@ -29,17 +29,17 @@ const categories = [
         children: [
           {
             id: "subheader1-child1",
-            title: "child 1",
+            title: "DropDown",
             link: "/subheader1/child1",
           },
           {
             id: "subheader1-child2",
-            title: "child 2",
+            title: "Graph",
             link: "/subheader1/child2",
           },
           {
             id: "subheader1-child3",
-            title: "child 3",
+            title: "Material Table",
             link: "/subheader1/child3",
           },
         ],
