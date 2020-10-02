@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 
 import Login from "./login";
-import { templateActions } from "../../../_actions";
 
 const styles = {
   paper: {
@@ -16,9 +15,7 @@ function mapStateToProps(state) {
   return {};
 }
 
-const actionCreators = {
-  updateHeader: templateActions.updateHeader,
-};
+const actionCreators = {};
 
 const LoginContainer = compose(
   withStyles(styles),
