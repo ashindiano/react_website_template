@@ -19,6 +19,7 @@ import { Route } from "react-router-dom";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { templateActions } from "../_actions";
 import { history } from "../_helpers";
+import { AuthService } from "../_services";
 
 const breadcrumbNameMap = {
   "/home": "Home",
@@ -182,7 +183,7 @@ class Header extends Component {
                   variant="outlined"
                   color="inherit"
                   size="small"
-                  onClick={this.props.logout}
+                  onClick={() => AuthService.logout()}
                 >
                   Logout
                 </Button>
