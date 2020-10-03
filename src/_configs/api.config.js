@@ -1,4 +1,4 @@
-export const apiVersion = "/api/v1/";
+export const apiVersion = "";
 
 export const api = {
   cities: {
@@ -12,7 +12,5 @@ export const api = {
 };
 
 export const authorizationApi = {
-  sample1: {
-    post: "login",
-  },
+  get: "/authentication_api/login?format=json",
 };

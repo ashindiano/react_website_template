@@ -5,9 +5,9 @@ import { apiService } from "./api.service";
 class authService {
   authorize = (username, password) => {
     return apiService
-      .get(authorizationApi.get, { username, password })
+      .post(authorizationApi.get, { username, password })
       .then((res) => {
-        login(res.data); //assuming res.data holds the token
+        login(res.data.content.token); //assuming res.data holds the token
         window.location.href = "/";
       });
   };
