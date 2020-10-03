@@ -9,7 +9,7 @@ import Child3Container from "../_views/subheader1/child3/container";
 export function bodyRoutes() {
   return (
     <Switch>
-      <Route path={"/home"} component={HomePageContainer} />
+      <Route exact path={"/home"} component={HomePageContainer} />
       <Route path={"/subheader1/child1"} component={Child1Container} />
       <Route path={"/subheader1/child2"} component={Child2Container} />
       <Route path={"/subheader1/child3"} component={Child3Container} />

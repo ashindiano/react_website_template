@@ -5,14 +5,14 @@ import { Route, Router, Switch } from "react-router-dom";
 
 import PrivateRoute from "./_helpers/private_route";
 import App from "./app";
-import LoginContainer from "./_views/login/container";
+import Login from "./_views/login/login_page";
 import { history, store } from "./_helpers";
 
 render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/login" component={LoginContainer} />
+        <Route path="/login" component={Login} />
         <PrivateRoute path="/" component={App} />
       </Switch>
     </Router>

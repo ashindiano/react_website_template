@@ -4,10 +4,8 @@ import {
   Grid,
   makeStyles,
   TextField,
-  ThemeProvider,
   Typography,
 } from "@material-ui/core";
-import theme from "../../_template/theme";
 import { AuthService } from "../../_services";
 
 const useStyles = makeStyles({
